@@ -10,9 +10,13 @@ public class Main {
         ford.motor();
         Cars nissan = new Cars("Nissan", "Murano",1,"black", 2021,"Japan","robot","crossover","B345MV21",4,"autumn");
         Cars.Key keyNissan = new Cars.Key(true,true);
+        Cars.Key.Insurance insuranceNissan = new Cars.Key.Insurance(LocalDate.now(),1000,"124567891");
         nissan.motor();
         Cars mitsubishi = new Cars("Mitsubishi","Lancer",1.6,"mint",2022,"Japan","automatic","Sedan","J789K7",4,"winter");
         Cars.Key keyMitsubishi = new Cars.Key(true,true);
+        Cars.Key.Insurance insuranseMitsubishi = new Cars.Key.Insurance(LocalDate.now(),1000,"123789456");
         mitsubishi.motor();
+
     }
+
 }
