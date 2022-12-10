@@ -1,8 +1,13 @@
 package Transport;
 
+
 import java.time.LocalDate;
 
-public class Cars {
+public class Cars extends Transport {
+    public Cars(String brand, String model, int year, String country, String color, int maximumMovementSpeed) {
+        super(brand, model, year, country, color, maximumMovementSpeed);
+    }
+
     public static class Key{
         private boolean remoteEngineStart;
         private boolean keylessAccess;
@@ -67,7 +72,7 @@ public class Cars {
         String registrationNumber;
         private int numberOfSeats;
         String rubber;
-        public Cars(String brand, String model, double engineVolume, String color, int year, String country,String transmission,String bodyType,String registrationNumber,int numberOfSeats, String rubber) {
+        /*public Cars(String brand, String model, double engineVolume, String color, int year, String country,String transmission,String bodyType,String registrationNumber,int numberOfSeats, String rubber) {
             setBrand(brand);
             setModel(model);
             setEngineVolume(engineVolume);
@@ -79,38 +84,9 @@ public class Cars {
             setRegistrationNumber(registrationNumber);
             setNumberOfSeats(numberOfSeats);
             setRubber(rubber);
-        }
-    public String getBrand() {
-        return brand;
-    }
-    public void setBrand(String brand) {
-            if(brand == null || brand.isEmpty()|| brand.isBlank()){
-                System.out.println("информация не корректна");
-            }else  {
-                this.brand = brand;
-            }
-    }
-    public String getModel() {
-        return model;
-    }
-    public void setModel(String model) {
-            if(model == null || model.isEmpty() || model.isBlank()){
-                System.out.println("информация не корректна");
+        }*/
 
-            }else{
-                this.model = model;
-            }
-    }
-    public String getColor() {
-        return color;
-    }
-    public void setColor(String color) {
-            if(color == null || color.isEmpty() || color.isBlank()){
-                System.out.println("информация не корректна");
-            } else{
-                this.color = color;
-            }
-    }
+
     public double getEngineVolume() {
         return engineVolume;
     }
@@ -122,27 +98,7 @@ public class Cars {
                 this.engineVolume = engineVolume;
             }
     }
-    public int getYear() {
-        return year;
-    }
 
-    public void setYear(int year) {
-            if(year < 2000){
-                this.year = 2000;
-        } else{
-                this.year = year;
-            }
-    }
-    public String getCountry() {
-        return country;
-    }
-    public void setCountry(String country) {
-            if(country == null || country.isEmpty() || country.isBlank()){
-                this.country = "Russia";
-            } else{
-                this.country = country;
-            }
-    }
     public String getTransmission() {
         return transmission;
     }
@@ -196,18 +152,6 @@ public class Cars {
             } else{
                 this.rubber = "incorrect";
             }
-    }
-    public void motor(){
-            System.out.println("Марка машины "+ brand);
-            System.out.println("Модель машины "+ model);
-            System.out.println("Движок " + engineVolume);
-            System.out.println("Год выпуска "+ year);
-            System.out.println("страна выпуска "+ country);
-            System.out.println("коробка передач " + transmission);
-            System.out.println("тип кузова " + bodyType);
-            System.out.println("Регистрационный номер " + registrationNumber);
-            System.out.println("количество мест " + numberOfSeats);
-            System.out.println("тип резины " + rubber);
     }
     }
 
