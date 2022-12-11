@@ -1,13 +1,26 @@
 package Transport;
 
-public class Train {
+public class Train extends Transport {
     public int tripPrice;
     public String timeOfTrip;
     public String departureStationName;
     public String endingStation;
     public int numberOfWagons;
 
-    public Train(String brand, String model, int year, String country, String color, int maximumMovementSpeed) {
+    public Train(String brand, String model, int year, String country, String color, int maximumMovementSpeed, int tripPrice, String timeOfTrip,String departureStationName, String endingStation, int numberOfWagons) {
+        super(brand, model, year, country, color, maximumMovementSpeed);
+        this.tripPrice = tripPrice;
+        this.timeOfTrip = timeOfTrip;
+        this.departureStationName = departureStationName;
+        this.endingStation = endingStation;
+        this.numberOfWagons = numberOfWagons;
+        this.brand = brand;
+        this.model = model;
+        getYear();
+        this.maximumMovementSpeed = maximumMovementSpeed;
+        getCountry();
+        this.color = color;
+
     }
 
 
@@ -69,11 +82,11 @@ public class Train {
         this.numberOfWagons = numberOfWagons;
     }
     public Train(int tripPrice, String timeOfTrip, String departureStationName, String endingStation, int numberOfWagons){
-        setTripPrice(tripPrice);
-        setTimeOfTrip(timeOfTrip);
-        setDepartureStationName(departureStationName);
-        setEndingStation(endingStation);
-        setNumberOfWagons(numberOfWagons);
+        super(tripPrice, timeOfTrip, departureStationName, endingStation, numberOfWagons);
+
+    }
+    public void trip(){
+        System.out.println("Поезд " + brand + " модель " + model + " год выпуска " + getYear() + " в " + getCountry() + " скорость передвижения " + maximumMovementSpeed + "отходит от " + departureStationName + " и следует до станции " + endingStation + " цена поездки " + tripPrice + " вагонов в поезде " + numberOfWagons);
     }
 
 

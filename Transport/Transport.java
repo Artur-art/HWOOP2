@@ -1,15 +1,22 @@
 package Transport;
 
-public class Transport extends Train{
+public class Transport{
     public String brand;
     public String model;
-    private int year;
-    private String country;
+    public int year; // private
+    public String country; // private
     public String color;
     int maximumMovementSpeed;
 
     public Transport(int tripPrice, String timeOfTrip, String departureStationName, String endingStation, int numberOfWagons) {
-        super(tripPrice, timeOfTrip,departureStationName,endingStation,numberOfWagons);
+        this.brand = brand;
+        this.model = model;
+        this.country = country;
+        this.maximumMovementSpeed = maximumMovementSpeed;
+        this.year = year;
+        this.color = color;
+
+
 
     }
 
@@ -85,26 +92,12 @@ public class Transport extends Train{
             this.maximumMovementSpeed = maximumMovementSpeed;
         }
 
-    }
-    public Transport (String brand, String model, int year, String country, String color,  int maximumMovementSpeed, int tripPrice, String timeOfTrip,String departureStationname, String endingStation, int numberOfWagons){
-        super (brand, model, year,country, color, maximumMovementSpeed);
-        setBrand(brand);
-        setModel(model);
-        setYear(year);
-        setCountry(country);
-        setColor(color);
-        setMaximumMovementSpeed(maximumMovementSpeed);
-        setNumberOfWagons(numberOfWagons);
-        setDepartureStationName(departureStationname);
-        setEndingStation(endingStation);
-        setTripPrice(tripPrice);
-    }
-    public void motor(){
-        System.out.println("марка " + brand + " модель  " + model + " год выпуска" + year + " страна производитель " +  country + " цвет машины " + color + " максимальная скорость " + maximumMovementSpeed + " км.ч");
-    }
-    public void trip(){
-        System.out.println("марка " + brand + " модель " + model + " год выпуска " + year + " страна производитель " + country + "  скорость передвижения " + maximumMovementSpeed + " км.ч" + " отходит от " + departureStationName + " и следует до станции " + endingStation + " цена поездки " +  tripPrice + " в поезде " + numberOfWagons + " вагонов");
 
     }
+    public Transport (String brand, String model, int year, String country, String color,  int maximumMovementSpeed){
 
+    }
+    void motor(){
+        System.out.println("Марка " + brand + " модель " + model + " год выпуска " + year + " страна производства " + country + " цвет кузова " + " Максимальная скорость движения " + maximumMovementSpeed );
+    }
 }

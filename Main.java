@@ -20,8 +20,9 @@ public class Main {
         mitsubishi.motor();*/
         Cars ford = new Cars("ford","kuga",2022,"USA","blue",200);
         ford.motor();
-        Transport lastochka = new Transport("Ласточка"," B-901",2011,"Россия","зеленый",300,3500,"11 часов","Белорусский вокзал","Минск пассажирский",8);
+        Train lastochka = new Train("Ласточка"," B-901",2011,"Россия","зеленый",300,3000,"11 часов","Белорусский вокзал","Минск пасажирская",20);
         lastochka.trip();
+
 
 
 
