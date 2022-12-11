@@ -8,6 +8,9 @@ public class Cars extends Transport {
         super(brand, model, year, country, color, maximumMovementSpeed);
     }
 
+    public void motor() {
+    }
+
     public static class Key{
         private boolean remoteEngineStart;
         private boolean keylessAccess;
