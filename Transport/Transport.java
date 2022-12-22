@@ -1,6 +1,6 @@
 package Transport;
 
-public class Transport{
+public abstract class Transport{
     public String brand;
     public String model;
     public int year; // private
@@ -15,9 +15,15 @@ public class Transport{
         this.maximumMovementSpeed = maximumMovementSpeed;
         this.year = year;
         this.color = color;
+    }
 
-
-
+    public Transport(String brand, String model, int year, String country, String color, int maximumMovementSpeed) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.country = country;
+        this.color = color;
+        this.maximumMovementSpeed = maximumMovementSpeed;
     }
 
     public String getBrand() {
@@ -91,13 +97,20 @@ public class Transport{
         }else{
             this.maximumMovementSpeed = maximumMovementSpeed;
         }
+    }
 
 
-    }
-    public Transport (String brand, String model, int year, String country, String color,  int maximumMovementSpeed){
 
+
+    /*public Transport (String brand, String model, int year, String country, String color, int maximumMovementSpeed){
+
+    }*/
+   public void motor(){
+        System.out.println("Марка " + brand + " модель " + model + " год выпуска " + year + " страна производства " + country + " цвет кузова " + " Максимальная скорость движения " + maximumMovementSpeed);
     }
-    void motor(){
-        System.out.println("Марка " + brand + " модель " + model + " год выпуска " + year + " страна производства " + country + " цвет кузова " + " Максимальная скорость движения " + maximumMovementSpeed );
-    }
+
+    public abstract void fuelPercentage();
+   public abstract void refil();
+
+
 }

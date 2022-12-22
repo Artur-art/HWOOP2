@@ -7,9 +7,34 @@ public class Cars extends Transport {
     public Cars(String brand, String model, int year, String country, String color, int maximumMovementSpeed) {
         super(brand, model, year, country, color, maximumMovementSpeed);
     }
+    protected double fuelPercentage;
 
-    public void motor() {
+    @Override
+    public void fuelPercentage() {
+        fuelPercentage = 57.49;
+        System.out.println("Количество топлива в процентах " + fuelPercentage);
+
     }
+    private String refilBenz;
+    private String refilDiesel;
+    private String specialParking;
+
+    @Override
+    public void refil() {
+        refilBenz = " ";
+        //refilDiesel = "Дизель";
+        //specialParking = "Специальные парковки";
+        //refilBenz = "Дизель";
+        if(refilBenz == null || refilBenz.isEmpty() || refilBenz.isBlank()){
+            refilBenz = "Не корректно";
+        }
+        System.out.println("зарядка автомобиля происходит " + refilBenz);
+    }
+
+
+    /*public void motor() {
+        System.out.println("Марка " + brand + " модель " + model + " год выпуска " + year + " страна производства " + country + " цвет кузова " + " Максимальная скорость движения " + maximumMovementSpeed);
+    }*/
 
     public static class Key{
         private boolean remoteEngineStart;
@@ -155,6 +180,8 @@ public class Cars extends Transport {
             } else{
                 this.rubber = "incorrect";
             }
+        }
+
     }
-    }
+
 

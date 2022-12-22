@@ -85,6 +85,27 @@ public class Train extends Transport {
         super(tripPrice, timeOfTrip, departureStationName, endingStation, numberOfWagons);
 
     }
+    protected double fuelPercentage;
+
+    @Override
+    public void fuelPercentage() {
+        fuelPercentage = 85.73;
+        System.out.println("Количество топлива в процентах " + fuelPercentage);
+    }
+    private String refilDiesel;
+
+    @Override
+    public void refil() {
+        refilDiesel = "Дизель";
+        if(refilDiesel == null || refilDiesel.isEmpty() || refilDiesel.isBlank()){
+            refilDiesel = "Не корректно";
+        }
+        refilDiesel = "Дизель";
+        System.out.println("Заправка автобуса " + refilDiesel);
+
+    }
+
+
     public void trip(){
         System.out.println("Поезд " + brand + " модель " + model + " год выпуска " + getYear() + " в " + getCountry() + " скорость передвижения " + maximumMovementSpeed + "отходит от " + departureStationName + " и следует до станции " + endingStation + " цена поездки " + tripPrice + " вагонов в поезде " + numberOfWagons);
     }

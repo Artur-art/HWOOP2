@@ -19,9 +19,29 @@ public class Main {
         Cars.Key.Insurance insuranseMitsubishi = new Cars.Key.Insurance(LocalDate.now(),1000,"123789456");
         mitsubishi.motor();*/
         Cars ford = new Cars("ford","kuga",2022,"USA","blue",200);
+        ford.refil();
+        ford.fuelPercentage();
         ford.motor();
         Train lastochka = new Train("Ласточка"," B-901",2011,"Россия","зеленый",300,3000,"11 часов","Белорусский вокзал","Минск пасажирская",20);
+        lastochka.refil();
+        lastochka.fuelPercentage();
         lastochka.trip();
+        Train leningrad = new Train("Ленинград","D-125",2019,"Россия","Зеленый",300,1700,"11 часов","Ленинградский вокзал","Ленинград пассажирский",8);
+        leningrad.refil();
+        leningrad.fuelPercentage();
+        leningrad.trip();
+        Bus volga = new Bus("Волга","B-117",2009,"Россия","Синий",100);
+        volga.refil();
+        volga.fuelPercentage();
+        volga.motor();
+        Bus california = new Bus("california","B-94",2022,"США","Желтый",120);
+        california.refil();
+        california.fuelPercentage();
+        california.motor();
+        Bus chicagoBulls = new Bus("Чикаго Буллс","B-87",2021,"США","Зеленый",110);
+        chicagoBulls.refil();
+        chicagoBulls.fuelPercentage();
+        chicagoBulls.motor();
 
 
 
