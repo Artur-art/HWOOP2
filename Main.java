@@ -59,7 +59,7 @@ public class Main {
         Utils.printCompeting(audi);
         Utils.printCompeting(bmw);
         Utils.printCompeting(hyundai);
-        Utils.printCompeting(ikarus);
+
         Utils.printCompeting(gazel);
         Utils.printCompeting(sprinter);
         Utils.printCompeting(volvoFH);
