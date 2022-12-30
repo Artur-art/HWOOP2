@@ -25,7 +25,11 @@ public abstract class Transport implements Competing {
         if (Utils.isStringNotNullAndNotBlank(brand)) {
             this.brand = brand;
         } else {
-            @@ -23,21 +36,9 @@ public Transport(String brand, String model, String color, int year, String coun
+            this.brand = "default";
+        }
+        if (Utils.isStringNotNullAndNotBlank(model)) {
+            this.model = model;
+        } else {
             this.model = "default";
         }
         setEngineVolume(engineVolume);
@@ -33,9 +37,11 @@ public abstract class Transport implements Competing {
     }
 
     public String getBrand() {
-        @@ -48,35 +49,55 @@ public String getModel() {
-            return model;
-        }
+        return brand;
+    }
+    public String getModel() {
+        return model;
+    }
         public double getEngineVolume() {
             return engineVolume;
         }
@@ -83,4 +89,3 @@ public abstract class Transport implements Competing {
                     + "========================================";
         }
     }
-}
