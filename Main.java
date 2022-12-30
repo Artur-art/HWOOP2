@@ -1,54 +1,72 @@
-import Transport.Cars;
-import Transport.Train;
-import Transport.Transport;
-
-import java.time.LocalDate;
+import driver.drivers.DriverB;
+import driver.drivers.DriverC;
+import driver.drivers.DriverD;
+import transport.transports.Bus;
+import transport.transports.Car;
+import transport.transports.Truck;
+import utils.Utils;
 
 public class Main {
-    public static void main (String[] args){
-        /*Cars ford = new Cars("ford", "kuga",1.6, "blue",2022,"USA","variator","crossover","A123BN23",4,"summer");
-        Cars.Key keyFord = new Cars.Key(true,true);
-        Cars.Key.Insurance insuranceFord = new Cars.Key.Insurance(LocalDate.now(),1500,"123333666");
-        ford.motor();
-        Cars nissan = new Cars("Nissan", "Murano",1,"black", 2021,"Japan","robot","crossover","B345MV21",4,"autumn");
-        Cars.Key keyNissan = new Cars.Key(true,true);
-        Cars.Key.Insurance insuranceNissan = new Cars.Key.Insurance(LocalDate.now(),1000,"124567891");
-        nissan.motor();
-        Cars mitsubishi = new Cars("Mitsubishi","Lancer",1.6,"mint",2022,"Japan","automatic","Sedan","J789K7",4,"winter");
-        Cars.Key keyMitsubishi = new Cars.Key(true,true);
-        Cars.Key.Insurance insuranseMitsubishi = new Cars.Key.Insurance(LocalDate.now(),1000,"123789456");
-        mitsubishi.motor();*/
-        Cars ford = new Cars("ford","kuga",2022,"USA","blue",200);
-        ford.refil();
-        ford.fuelPercentage();
-        ford.motor();
-        Train lastochka = new Train("Ласточка"," B-901",2011,"Россия","зеленый",300,3000,"11 часов","Белорусский вокзал","Минск пасажирская",20);
-        lastochka.refil();
-        lastochka.fuelPercentage();
-        lastochka.trip();
-        Train leningrad = new Train("Ленинград","D-125",2019,"Россия","Зеленый",300,1700,"11 часов","Ленинградский вокзал","Ленинград пассажирский",8);
-        leningrad.refil();
-        leningrad.fuelPercentage();
-        leningrad.trip();
-        Bus volga = new Bus("Волга","B-117",2009,"Россия","Синий",100);
-        volga.refil();
-        volga.fuelPercentage();
-        volga.motor();
-        Bus california = new Bus("california","B-94",2022,"США","Желтый",120);
-        california.refil();
-        california.fuelPercentage();
-        california.motor();
-        Bus chicagoBulls = new Bus("Чикаго Буллс","B-87",2021,"США","Зеленый",110);
-        chicagoBulls.refil();
-        chicagoBulls.fuelPercentage();
-        chicagoBulls.motor();
+    public static void main(String[] args) {
+        Car<DriverB> lada = new Car<>(
+                "Lada",
+                "Granta",
+                1.7,
+                new DriverB("Name1", true, 2));
+        Car<DriverB> audi = new Car<>(
+                "Audi",
+                "A8 50 L TDI quattro",
+                3.0,
+                new DriverB("Name2", false, 5));
+        Car<DriverB> bmw = new Car<>(
+                "BMW",
+                "Z8",
+                3.0,
+                new DriverB("Name3", true, 3));
+        Car<DriverB> hyundai = new Car<>("Hyundai",
+                "Avante",
+                1.6,
+                new DriverB("Name4", true, 7));
+        Bus<DriverD> ikarus = new Bus<>("Ikarus",
+                "250",
+                2.9,
+                new DriverD("Name6", true, 13));
+        Bus<DriverD> gazel = new Bus<>("ГАЗель",
+                "NEXT",
+                2.4,
+                new DriverD("Name7", false, 3));
+        Bus<DriverD> sprinter = new Bus<>("Mercedes",
+                "Sprinter",
+                3.2,
+                new DriverD("Name8", true, 4));
 
-
-
-
-
-
-
+        Truck<DriverC> volvoFH = new Truck<>("Volvo",
+                "FH",
+                5.4,
+                new DriverC("Name9", true, 14));
+        Truck<DriverC> volvoVN = new Truck<>("Volvo",
+                "VN",
+                5.9,
+                new DriverC("Name10", true, 5));
+        Truck<DriverC> volvoFL6 = new Truck<>("Volvo",
+                "FL6",
+                7.2,
+                new DriverC("Name11", true, 7));
+        Truck<DriverC> volvoVT = new Truck<>("Volvo",
+                "VT",
+                6.1,
+                new DriverC("Name12", false, 2));
+        Utils.printCompeting(lada);
+        Utils.printCompeting(audi);
+        Utils.printCompeting(bmw);
+        Utils.printCompeting(hyundai);
+        Utils.printCompeting(ikarus);
+        //Utils.printCompeting(pazik);
+        Utils.printCompeting(gazel);
+        Utils.printCompeting(sprinter);
+        Utils.printCompeting(volvoFH);
+        Utils.printCompeting(volvoVN);
+        Utils.printCompeting(volvoFL6);
+        Utils.printCompeting(volvoVT);
     }
-
 }
