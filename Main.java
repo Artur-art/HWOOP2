@@ -56,12 +56,10 @@ public class Main {
                 "VT",
                 6.1,
                 new DriverC("Name12", false, 2));
-        Utils.printCompeting(lada);
         Utils.printCompeting(audi);
         Utils.printCompeting(bmw);
         Utils.printCompeting(hyundai);
         Utils.printCompeting(ikarus);
-        //Utils.printCompeting(pazik);
         Utils.printCompeting(gazel);
         Utils.printCompeting(sprinter);
         Utils.printCompeting(volvoFH);
