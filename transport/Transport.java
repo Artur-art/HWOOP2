@@ -7,8 +7,9 @@ import transport.transports.Truck;
 import utils.Utils;
 public abstract class Transport implements Competing {
     private final String type;
-    private final String brand;
-    private final String model;
+    protected final String brand;
+    protected final String model;
+
     private double engineVolume;
     private Driver driver;
 
@@ -64,6 +65,7 @@ public abstract class Transport implements Competing {
         public void endMoving() {
             System.out.println(type + ' ' + brand + " " + model + " закончил движение.");
         }
+        public abstract void printType();
 
         @Override
         public void pitStop() {
