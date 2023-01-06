@@ -1,6 +1,6 @@
 package transport;
 
-import driver.Driver;
+
 import transport.transports.Bus;
 import transport.transports.Car;
 import transport.transports.Truck;
@@ -12,6 +12,7 @@ public abstract class Transport implements Competing {
     protected final String model;
     private double engineVolume;
     protected Driver driver;
+    protected final List<Mechanic> mechanics;
 
     public Transport(String brand, String model, double engineVolume, Driver driver) {
         if (this instanceof Car) {
@@ -23,38 +24,38 @@ public abstract class Transport implements Competing {
         } else {
             type = "default";
         }
-
         if (Utils.isStringNotNullAndNotBlank(brand)) {
             this.brand = brand;
         } else {
             this.brand = "default";
         }
-
         if (Utils.isStringNotNullAndNotBlank(model)) {
             this.model = model;
         } else {
             this.model = "default";
         }
-
         setEngineVolume(engineVolume);
 
         this.driver = driver;
+
+        mechanics = new ArrayList<>();
     }
 
     public String getBrand() {
         return brand;
     }
-
     public String getModel() {
         return model;
     }
-
     public double getEngineVolume() {
         return engineVolume;
     }
-
     public Driver getDriver() {
         return driver;
+    }
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
     }
 
     public void setEngineVolume(double engineVolume) {
@@ -65,35 +66,30 @@ public abstract class Transport implements Competing {
         }
     }
 
+    public abstract void addMechanic(Mechanic mechanic);
+
     public void setDriver(Driver driver) {
         this.driver = driver;
     }
-
     public void startMoving() {
         System.out.println(type + ' ' + brand + " " + model + " начал движение.");
     }
-
     public void endMoving() {
         System.out.println(type + ' ' + brand + " " + model + " закончил движение.");
     }
-
     public abstract void printType();
-
     // -1 – для транспортных средств, не требующих диагностики
     // 0 – для непрошедших диагностику транспортных средств
     // 1 – для прошедших диагностику транспортных средств
     public abstract int getDiagnostic();
-
     @Override
     public void pitStop() {
         System.out.println(type + ' ' + brand + " " + model + " на пит-стопе.");
     }
-
     @Override
     public void bestLapTime() {
         System.out.println("Лучший круг " + brand + " " + model + ": " + 5 + 3 * Math.random() + " мин.");
     }
-
     @Override
     public void maxSpeed() {
         System.out.println("Максимальная скорость " + brand + " " + model + ": " + 5 + 3 * Math.random() + " км/ч.");
@@ -101,10 +97,17 @@ public abstract class Transport implements Competing {
 
     @Override
     public String toString() {
-        return "========================================\n" +
+        StringBuilder stringBuilder = new StringBuilder("========================================\n" +
                 "[" + type + "] " + brand + " " + model + '\n'
                 + "Мощность двигателя: " + engineVolume + '\n'
                 + (driver != null ? "Водитель: " + driver + '\n' : "")
-                + "========================================";
+                + (mechanics.isEmpty() ? "" : "Механики:\n"));
+        for (Mechanic mechanic : mechanics) {
+            stringBuilder.append("\t • ").append(mechanic).append('\n');
+        }
+        stringBuilder.append("========================================");
+        return stringBuilder.toString();
     }
 }
+
+

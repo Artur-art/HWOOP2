@@ -1,6 +1,5 @@
-package driver.drivers;
-
-import driver.Driver;
+package stuff.driver.drivers;
+import stuff.driver.Driver;
 
 public class DriverD extends Driver {
     public DriverD(String fullName, boolean haveLicense, int experience) {

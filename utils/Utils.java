@@ -5,7 +5,6 @@ public class Utils {
     public static boolean isStringNotNullAndNotBlank(String str) {
         return str != null && !str.isBlank();
     }
-
     public static void printCompeting(Competing competing) {
         System.out.println();
         System.out.println(competing);
@@ -19,6 +18,20 @@ public class Utils {
                     + " управляет автомобилем " + transport.getBrand() + ' ' + transport.getModel()
                     + " и будет участвовать в заезде.");
             transport.printType();
+            switch (transport.getDiagnostic()) {
+                case 0:
+                    System.out.println("У водителя "
+                            + transport.getBrand() + ' ' + transport.getModel()
+                            " отсутствуют права!");
+                    break;
+                case 1:
+                    System.out.println(transport.getBrand() + ' ' + transport.getModel()
+                            + " успешно прошло диагностику");
+                    break;
+                default:
+                    System.out.println(transport.getBrand() + ' ' + transport.getModel()
+                            + " не требует диагностики");
+            }
         }
         System.out.println();
     }
