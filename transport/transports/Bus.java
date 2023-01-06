@@ -20,16 +20,13 @@ public class Bus <T extends DriverD> extends Transport {
     public void setCapacity(Capacity capacity) {
         this.capacity = Objects.requireNonNullElse(capacity, Capacity.S);
     }
-
     @Override
     public void addMechanic(Mechanic mechanic) {
         if (mechanic != null
-                && mechanic.isWorkingWithBuses()
-                && !mechanics.contains(mechanic)) {
+                && mechanic.isWorkingWithBuses()) {
             mechanics.add(mechanic);
         }
     }
-
     @Override
     public void printType() {
         System.out.println('[' + brand + ' ' + model + "] " + capacity);

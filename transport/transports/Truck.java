@@ -22,16 +22,13 @@ public class Truck <T extends DriverC> extends Transport {
     public void setLoadCapacity(LoadCapacity loadCapacity) {
         this.loadCapacity = Objects.requireNonNullElse(loadCapacity, LoadCapacity.N1);
     }
-
     @Override
     public void addMechanic(Mechanic mechanic) {
         if (mechanic != null
-                && mechanic.isWorkingWithTrucks()
-                && !mechanics.contains(mechanic)) {
+                && mechanic.isWorkingWithTrucks()) {
             mechanics.add(mechanic);
         }
     }
-
     @Override
     public void printType() {
         System.out.println('[' + brand + ' ' + model + "] " + loadCapacity);

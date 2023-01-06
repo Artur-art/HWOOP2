@@ -5,6 +5,8 @@ import transport.transports.Bus;
 import transport.transports.Car;
 import transport.transports.Truck;
 import utils.Utils;
+import java.util.*;
+
 
 public abstract class Transport implements Competing {
     private final String type;
@@ -13,6 +15,7 @@ public abstract class Transport implements Competing {
     private double engineVolume;
     protected Driver driver;
     protected final List<Mechanic> mechanics;
+    protected final Set<Mechanic> mechanics;
 
     public Transport(String brand, String model, double engineVolume, Driver driver) {
         if (this instanceof Car) {
@@ -37,8 +40,7 @@ public abstract class Transport implements Competing {
         setEngineVolume(engineVolume);
 
         this.driver = driver;
-
-        mechanics = new ArrayList<>();
+        mechanics = new HashSet<>();
     }
 
     public String getBrand() {
@@ -53,11 +55,9 @@ public abstract class Transport implements Competing {
     public Driver getDriver() {
         return driver;
     }
-
-    public List<Mechanic> getMechanics() {
+    public Set<Mechanic> getMechanics() {
         return mechanics;
     }
-
     public void setEngineVolume(double engineVolume) {
         if (engineVolume > 0) {
             this.engineVolume = engineVolume;
@@ -65,9 +65,7 @@ public abstract class Transport implements Competing {
             this.engineVolume = 1.5;
         }
     }
-
     public abstract void addMechanic(Mechanic mechanic);
-
     public void setDriver(Driver driver) {
         this.driver = driver;
     }
@@ -78,9 +76,6 @@ public abstract class Transport implements Competing {
         System.out.println(type + ' ' + brand + " " + model + " закончил движение.");
     }
     public abstract void printType();
-    // -1 – для транспортных средств, не требующих диагностики
-    // 0 – для непрошедших диагностику транспортных средств
-    // 1 – для прошедших диагностику транспортных средств
     public abstract int getDiagnostic();
     @Override
     public void pitStop() {
@@ -94,7 +89,6 @@ public abstract class Transport implements Competing {
     public void maxSpeed() {
         System.out.println("Максимальная скорость " + brand + " " + model + ": " + 5 + 3 * Math.random() + " км/ч.");
     }
-
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder("========================================\n" +
@@ -108,6 +102,19 @@ public abstract class Transport implements Competing {
         stringBuilder.append("========================================");
         return stringBuilder.toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport transport = (Transport) o;
+        return brand.equals(transport.brand)
+                && model.equals(transport.model)
+                && Objects.equals(driver, transport.driver);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, driver);
+    }
 }
-
-
