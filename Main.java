@@ -1,34 +1,137 @@
-import Transport.Cars;
-import Transport.Train;
-import Transport.Transport;
-
-import java.time.LocalDate;
-
+import stuff.Mechanic;
+import stuff.driver.drivers.DriverB;
+import stuff.driver.drivers.DriverC;
+import stuff.driver.drivers.DriverD;
+import transport.Transport;
+import transport.enums.Capacity;
+import transport.enums.LoadCapacity;
+import transport.transports.Bus;
+import transport.transports.Car;
+import transport.transports.Truck;
+import utils.Utils;
+import java.util.HashSet;
+import java.util.Set;
 public class Main {
-    public static void main (String[] args){
-        /*Cars ford = new Cars("ford", "kuga",1.6, "blue",2022,"USA","variator","crossover","A123BN23",4,"summer");
-        Cars.Key keyFord = new Cars.Key(true,true);
-        Cars.Key.Insurance insuranceFord = new Cars.Key.Insurance(LocalDate.now(),1500,"123333666");
-        ford.motor();
-        Cars nissan = new Cars("Nissan", "Murano",1,"black", 2021,"Japan","robot","crossover","B345MV21",4,"autumn");
-        Cars.Key keyNissan = new Cars.Key(true,true);
-        Cars.Key.Insurance insuranceNissan = new Cars.Key.Insurance(LocalDate.now(),1000,"124567891");
-        nissan.motor();
-        Cars mitsubishi = new Cars("Mitsubishi","Lancer",1.6,"mint",2022,"Japan","automatic","Sedan","J789K7",4,"winter");
-        Cars.Key keyMitsubishi = new Cars.Key(true,true);
-        Cars.Key.Insurance insuranseMitsubishi = new Cars.Key.Insurance(LocalDate.now(),1000,"123789456");
-        mitsubishi.motor();*/
-        Cars ford = new Cars("ford","kuga",2022,"USA","blue",200);
-        ford.motor();
-        Train lastochka = new Train("Ласточка"," B-901",2011,"Россия","зеленый",300,3000,"11 часов","Белорусский вокзал","Минск пасажирская",20);
-        lastochka.trip();
+    public static void main(String[] args) {
+                Set<Transport> transports = new HashSet<>();
+                Set<Driver> drivers = new HashSet<>();
+                Set<Mechanic> mechanics = new HashSet<>()
+
+        DriverB driver1 = new DriverB("Name1", true, 2);
+        drivers.add(driver1);
+        transports.add(new Car<>(
+                "Lada",
+                "Granta",
+                1.7,
+                driver1,
+                null));
+        DriverB driver2 = new DriverB("Name2", false, 5);
+        drivers.add(driver2);
+        transports.add(new Car<>(
+                "Audi",
+                "A8 50 L TDI quattro",
+                3.0,
+
+                driver2,
+                null));
+        DriverB driver3 = new DriverB("Name3", true, 3);
+        drivers.add(driver3);
+        transports.add(new Car<>(
+                "BMW",
+                "Z8",
+                3.0,
+                driver3,
+                null));
+        DriverB driver4 = new DriverB("Name4", true, 7);
+        drivers.add(driver4);
+        transports.add(new Car<>("Hyundai",
+                "Avante",
+                1.6,
+
+        driver4,
+                null));
+
+                DriverD driver5 = new DriverD("Name5", true, 6);
+        drivers.add(driver5);
+        transports.add(new Bus<>("Ikarus",
+                "250",
+                2.5,
+                driver5,
+                Capacity.XL));
+        DriverD driver6 = new DriverD("Name6", true, 13);
+        drivers.add(driver6);
+        transports.add(new Bus<>("ПАЗ",
+                "3205",
+                2.9,
+                driver6,
+                Capacity.S));
+        DriverD driver7 = new DriverD("Name7", false, 3);
+        drivers.add(driver7);
+        transports.add(new Bus<>("ГАЗель",
+                "NEXT",
+                2.4,
+                driver7,
+                Capacity.M));
+        DriverD driver8 = new DriverD("Name8", true, 4);
+        drivers.add(driver8);
+        transports.add(new Bus<>("Mercedes",
+                "Sprinter",
+                3.2,
+        driver8,
+                Capacity.XS));
+
+                DriverC driver9 = new DriverC("Name9", true, 14);
+        drivers.add(driver9);
+        transports.add(new Truck<>("Volvo",
+                "FH",
+                5.4,
+                driver9,
+                null));
+        DriverC driver10 = new DriverC("Name10", true, 5);
+        drivers.add(driver10);
+        transports.add(new Truck<>("Volvo",
+                "VN",
+                5.9,
+                driver10,
+                LoadCapacity.N1));
+        DriverC driver11 = new DriverC("Name11", true, 7);
+        drivers.add(driver11);
+        transports.add(new Truck<>("Volvo",
+                "FL6",
+                7.2,
+
+                driver11,
+                LoadCapacity.N2));
+        DriverC driver12 = new DriverC("Name12", false, 2);
+        drivers.add(driver12);
+        transports.add(new Truck<>("Volvo",
+                "VT",
+                6.1,
+        driver12,
+                LoadCapacity.N3));
+
+        Mechanic mechanic1 = new Mechanic("Name13",
+                "Company1",
+                false, false, false);
+        mechanics.add(mechanic1);
+        Mechanic mechanic2 = new Mechanic("Name14",
+                "Company1",
+                true, true, true);
+        mechanics.add(mechanic2);
+        Mechanic mechanic3 = new Mechanic("Name15",
+                "Company1",
+                true, false, false);
+        mechanics.add(mechanic3);
 
 
-
-
-
-
-
+        for (Transport transport : transports) {
+            for (Mechanic mechanic : mechanics) {
+                transport.addMechanic(mechanic);
+            }
+            Utils.printCompeting(transport);
+        }
+        for (Driver driver : drivers) {
+            System.out.println(driver);
     }
-
 }
+
